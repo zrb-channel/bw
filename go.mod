@@ -6,7 +6,7 @@ require (
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/google/go-querystring v1.1.0
 	github.com/json-iterator/go v1.1.12
-	github.com/zrb-channel/utils v0.0.0-20220921150943-93342e5677dd
+	github.com/zrb-channel/utils v1.0.1
 )
 
 require (

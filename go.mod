@@ -1,4 +1,4 @@
-module repo.zrb8.cn/zrb_channel/bw
+module github.com/zrb-channel/bw
 
 go 1.19
 

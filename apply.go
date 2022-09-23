@@ -19,6 +19,9 @@ import (
 // @param order
 // @date 2022-09-21 02:46:17
 func Apply(ctx context.Context, token string, conf *Config, body *ApplyRequest) (*ApplyResponse, error) {
+	if err := ctx.Err(); err != nil {
+		return nil, err
+	}
 
 	timestamp := utils.Timestamp()
 

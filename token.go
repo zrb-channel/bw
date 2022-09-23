@@ -12,6 +12,9 @@ import (
 // @param ctx
 // @date 2022-09-21 00:58:55
 func GetToken(ctx context.Context, conf *Config) (*TokenResponse, error) {
+	if err := ctx.Err(); err != nil {
+		return nil, err
+	}
 
 	body := &TokenRequest{
 		ClientSecret: conf.AppSecret,

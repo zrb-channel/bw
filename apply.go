@@ -62,6 +62,9 @@ func Apply(ctx context.Context, token string, conf *Config, body *ApplyRequest) 
 
 	if res.Error != nil {
 		log.WithError(err).Error("[百望]-获取联登地址，返回数据有误", log.Fields(map[string]any{"conf": conf, "body": body, "params": params, "resp": resp.String(), "result": res}))
+		if v := res.Error.SubMessage; v != "" {
+			return nil, errors.New(v)
+		}
 		return nil, errors.New(res.Error.Message)
 	}
 

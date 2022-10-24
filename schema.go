@@ -1,6 +1,9 @@
 package bw
 
-import "time"
+import (
+	"github.com/zrb-channel/utils"
+	"time"
+)
 
 type (
 	// Config 百望配置参数
@@ -12,6 +15,8 @@ type (
 		Username string `json:"username"`
 
 		Password string `json:"password"`
+
+		OrgNo string `json:"orgNo"`
 	}
 
 	ErrorResponse struct {
@@ -110,5 +115,58 @@ type (
 	QueryRequest struct {
 		OrgNo              string   `json:"orgNo"`
 		ChannelOrderIdList []string `json:"channelOrderIdList"`
+	}
+
+	QueryResponse struct {
+		// 订单 ID
+		ChannelOrderId string `json:"channelOrderId"`
+
+		// 授信金额
+		CreditAmount utils.TextDecimal `json:"creditAmount"`
+
+		// 放款金额
+		DrawAmount utils.TextDecimal `json:"drawAmount"`
+
+		// 状态编号
+		// 1002，订单创建成功
+		// 2001,进件中
+		// 2002，数据上传
+		// 3001,初审中
+		// 3002,无法评估
+		// 3003,初审失败
+		// 3004,初审成功
+		// 5002,授信失败
+		// 5003,授信成功
+		// 7001,放款成功
+		// 6002,放款失败
+		// 8001,还款完成
+		// 23009,机构编号不存在
+		// 28001,产品信息不存在
+		// 28002,产品未上架
+		// 28003,渠道营销人员不存在
+		// 28004,渠道没有该产品的营销权限
+		// 28005,实名认证失败，姓名、身份证号和手机号不匹配
+		// 28006,企业认证失败
+		// 28007,该用户存在途订单
+		// 28008,渠道机构号与Appkey 不匹配
+		// 2001,进件中
+		// 2002,数据上传
+		// 3001,初审中
+		// 3002,无法评估
+		// 3003,初审失败
+		// 3004,初审成功
+		// 5002,授信失败
+		// 5003,授信成功
+		// 7001,放款成功
+		// 6002,放款失败
+		// 8001,还款完成
+		// 23009,机构编号不存在
+		// 28001,产品信息不存在
+		// 28002,产品未上架
+		// 28003,渠道营销人员不存
+		Status string `json:"status"`
+
+		// 状态描述
+		StatusDesc string `json:"statusDesc"`
 	}
 )
